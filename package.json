@@ -1,0 +1,50 @@
+{
+  "name": "financial-transaction-processor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && sls package",
+    "type-check": "tsc --noEmit --pretty",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "start:dev": "sls offline start -s dev --reloadHandler --httpPort 3001",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.15.40",
+    "@swc/jest": "^0.2.39",
+    "@types/aws-lambda": "^8.10.161",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.60.0",
+    "@typescript-eslint/parser": "^8.60.0",
+    "esbuild-node-externals": "^1.22.0",
+    "eslint": "^10.4.1",
+    "eslint-config-prettier": "^10.1.8",
+    "jest": "^30.4.2",
+    "prettier": "^3.8.3",
+    "serverless-esbuild": "^1.57.2",
+    "serverless-offline": "^14.7.1",
+    "typescript": "^6.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas95santos/financial-transaction-processor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lucas95santos/financial-transaction-processor/issues"
+  },
+  "homepage": "https://github.com/lucas95santos/financial-transaction-processor#readme"
+}

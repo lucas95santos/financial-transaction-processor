@@ -1,0 +1,40 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: lucas95
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: financial-transaction-processor
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: financial-transaction-processor
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+build:
+  esbuild: false
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: false
+    target: node24
+    platform: node
+    concurrency: 10
+    tsconfig: ./tsconfig.json
+    plugins: ./esbuild.plugins.js
+    exclude:
+      - '@aws-sdk/*'
+
+provider:
+  name: aws
+  runtime: nodejs24.x
+
+functions:
+  hello:
+    handler: src/infrastructure/http/handlers/handler.hello
+    events:
+      - http:
+          private: false
+          path: hello
+          method: get
+
